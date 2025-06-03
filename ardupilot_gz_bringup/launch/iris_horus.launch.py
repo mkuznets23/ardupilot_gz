@@ -95,13 +95,13 @@ def generate_launch_description():
     )
 
     # Static Transform for Realsense camera
-    # realsense_tf = Node(
-    #     package='tf2_ros',
-    #     executable='static_transform_publisher',
-    #     name='static_tf_pub_base_to_d435',
-    #     arguments=['0', '0', '0', '0', '0', '0', 'base_link', 'realsense_d435/link/realsense_d435'],
-    #     output='screen'
-    # )
+    realsense_tf = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_tf_pub_base_to_d435',
+        arguments=['0', '0', '0', '0', '0', '0', 'base_link', 'realsense_d435/link/realsense_d435'],
+        output='screen'
+    )
 
     return LaunchDescription(
         [
@@ -111,7 +111,7 @@ def generate_launch_description():
             gz_sim_server,
             gz_sim_gui,
             iris,
-            rviz
-            # realsense_tf
+            rviz,
+            realsense_tf
         ]
     )
